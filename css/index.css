@@ -103,7 +103,7 @@ main {
 .cta{
     display: flex;
     gap: 20px;    
-    margin-top: 5%;
+    /* margin-top: 5%; */
 
 }
 .ob-btn{
