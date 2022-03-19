@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Passero+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+*,
+**::after,
+**::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-accent: #ebf9fd;
+  --clr-red: #ff3700;
+  --clr-black: #000;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-accent);
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  /* font-family: 'Passero One', cursive; */
+}
+header {
+  padding: 2% 3%;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo p {
+  color: var(--clr-black);
+  font-size: 16px;
+  font-weight: 600;
+}
+.logo p span {
+  color: var(--clr-red);
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.icons ion-icon {
+  font-size: 1.5rem;
+  color: var(--clr-red);
+}
+
+main {
+  width: 90%;
+  padding-top: 7%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-text{
+    width: 95%;
+}
+
+.cta-text p:nth-child(1){
+    font-size: 6vw;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.cta-text p:nth-child(2){
+    margin-top: -1%;
+    width: 70%;
+    color: var(--clr-black);
+    opacity: .5;
+    font-weight: 300;
+    margin-top: -3%;
+    font-size: 14px;
+
+}
+
+.cta-text p:nth-child(1) span{
+    color: var(--clr-red);
+}
+
+.right button {
+  padding: 2% 5%;
+  align-self: flex-start;
+  background: rgba(255, 55, 0, 0.5);
+  border-radius: 40px;
+  /* width: 35%; */
+  border: none;
+  font-size: .8rem;
+}
+
+.cta{
+    display: flex;
+    gap: 20px;    
+
+}
+.ob-btn{
+  padding: 1% 7%;
+  display: flex;
+  color: black;
+  border-radius: 10px;
+  gap: 7px;
+
+}
+
+.ob-btn p{
+    font-size: 1em;
+    align-self: center;
+}
+.ob-btn p ion-icon{
+    font-size: 1.5em;
+    
+}
+
+.ob-btn p:nth-child(2) ion-icon{
+    transform: rotate(-30deg);
+}
+
+.order-btn{
+   background-color: var(--clr-red);    
+}
+
+.book-btn{
+  background: rgba(255, 55, 0, 0.5);
+}
+
+.left {
+  width: 50%;
+  position: relative;
+}
+.left .img {
+  background-image: url("https://images.pexels.com/photos/10779657/pexels-photo-10779657.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-left: 10%;
+  width: 35vw;
+  height: 35vw;
+  border-radius: 50%;
+}
+
+.e1 {
+  position: absolute;
+  top: 0;
+  right: 25%;
+  font-size: 3vw;
+}
+.e2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 3vw;
+}
+.e3 {
+  position: absolute;
+  bottom: -10%;
+  right: 25%;
+  font-size: 3vw;
+}
+
+/* image */
+@media screen and (min-width: 100px) {
+  .left .img {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .left {
+    width: 100%;
+  }
+  /* .left .img {
+    display: none;
+  } */
+}
