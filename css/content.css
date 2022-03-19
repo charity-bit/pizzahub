@@ -16,57 +16,125 @@
 html {
   scroll-behavior: smooth;
 }
-body{
-    background-color: var(--clr-accent);
+body {
+  background-color: var(--clr-accent);
 }
 
-header{
-    display: flex;
-    align-items: center;
+header {
+  display: flex;
+  align-items: center;
 }
 
-.nav-items{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin-top: 2%;
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 2%;
 }
 
-.nav-links{
-    display: flex;
-    align-items: center;
-    gap:10%;
-    list-style: none;
-
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  list-style: none;
 }
-.nav-links li a{
-    color: var(--clr-black);
-    text-decoration: none;
+.nav-links li a {
+  color: var(--clr-black);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.5s ease-in-out;
 }
 
-
+.nav-links li a:hover {
+  color: var(--clr-red);
+}
 
 .logo p {
-    color: var(--clr-black);
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .logo p span {
-    color: var(--clr-red);
-  }
-  
-  .icons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .icons ion-icon {
-    font-size: 1.2rem;
-    color: var(--clr-red);
-  }
-  
-  @media screen and (max-width: 575px) {
+  color: var(--clr-black);
+  font-size: 16px;
+  font-weight: 600;
+}
+.logo p span {
+  color: var(--clr-red);
+}
 
-      
+.icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.icons ion-icon {
+  font-size: 1.2rem;
+  color: var(--clr-red);
+}
+nav h1 {
+  display: none;
+}
+
+.show-menu{
+  display: none;
+}
+
+@media screen and (max-width: 575px) {
+  .nav-items {
+    justify-content: space-between;
   }
+  .logo {
+    align-self: flex-start;
+    padding: 2%;
+  }
+  .show-menu {
+    position: absolute;
+    display: block;
+    right: 2%;
+    top: 2%;
+    background-color: transparent;
+    border: none;
+  }
+  .show-menu ion-icon{
+      color: var(--clr-red);
+      font-size: 24px;
+         
+  }
+  .icons {
+    display: none;
+  }
+
+  nav {
+    background: rgba(255, 55, 0, 0.5);
+    width: 50%;
+    height: 100vh;
+    margin-top: -2%;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    transition: all 1s ease-in;
+    transform: translateX(100%);
+  }
+
+  .show-nav{
+    transform: translateX(0);
+  }
+  nav h1 {
+    display: flex;
+    margin: 5%;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 5%;
+    height: 50%;
+  }
+
+  .nav-links li a {
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in;
+  }
+  .nav-links li a:hover {
+    color: var(--clr-accent);
+  }
+}
