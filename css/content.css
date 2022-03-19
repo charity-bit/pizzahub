@@ -80,6 +80,194 @@ nav h1 {
   display: none;
 }
 
+
+/* carousel */
+
+ .csel {
+  width: 70%;
+  padding: 10% 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-text{
+  gap: 20px;
+}
+.cta-text p:nth-child(1) {
+  font-size: 4vw;
+  font-weight: 700;
+  line-height: 1.2;
+  width: 60%;
+}
+.cta-text p:nth-child(2) {
+  margin-top: 10px;
+  width: 70%;
+  color: var(--clr-black);
+  opacity: 0.5;
+  font-weight: 300;
+  margin-top: -3%;
+  font-size: 14px;
+}
+.carousel-indicators .active{
+  background-color: red;
+}
+.carousel-indicators .notactive{
+  background-color: rgba(255, 55, 0, 0.5);
+
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+  background-color: var(--clr-red);
+}
+
+.cta-text p:nth-child(1) span {
+  color: var(--clr-red);
+}
+
+.try{
+  color: black !important;
+  font-size: 2vw;
+  font-weight: 400;
+}
+
+.ob-btn {
+  padding: 0 7%;
+  display: flex;
+  color: black;
+  border-radius: 10px;
+  gap: 7px;
+  text-decoration: none;
+  background-color: var(--clr-red);
+  justify-self: flex-start;
+}
+.ob-btn:hover{
+  color: #000;
+}
+.ob-btn p {
+  font-size: 1em;
+  align-self: center;
+  margin-top: 10%;
+  font-weight: 500;
+}
+.ob-btn p ion-icon {
+  font-size: 2em;
+  color: var(--clr-accent);
+}
+
+.cta{
+  display: flex;
+  margin-top: 5%;
+}
+
+
+.left {
+  width: 30%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left .img {
+  background-image: url("https://images.pexels.com/photos/10779657/pexels-photo-10779657.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 150px !important;
+  min-height: 150px !important;
+  border-radius: 50%;
+}
+
+.e1 {
+  position: absolute;
+  top: -7%;
+  right: 25%;
+  font-size: 3vw;
+}
+.e2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 3vw;
+}
+.e3 {
+  position: absolute;
+  bottom: -10%;
+  right: 25%;
+  font-size: 3vw;
+}
+
+
+/* qualities section */
+
+
+.qualities-container{
+  background: rgba(255, 55, 0, 0.21);
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  gap: 20px;
+  padding: 5% 0;
+  margin:0 auto;
+}
+
+.col-lg-3{
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
+.item:nth-child(2){
+  position: relative;
+}
+.item:nth-child(2)::after{
+   content: "";
+   background-color: var(--clr-red);
+   position: absolute;
+   width: 1px;
+   height: 100%;
+   left: 100%
+}
+
+.item:nth-child(1){
+  position: relative;
+}
+
+.item:nth-child(1)::after{
+  content: "";
+  background-color: var(--clr-red);
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: 100%;
+}
+.col-lg-3 span{
+  display: block;
+  font-weight: 200;
+  color: #000;
+  font-size: 15px;
+  width:13ch;
+}
+
+.item p{
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.item ion-icon{
+  color:var(--clr-red);
+  font-size: 3vw;
+}
+
+
+
 @media screen and (max-width: 575px) {
   header{
     width: 100vw;
@@ -148,147 +336,38 @@ nav h1 {
   .nav-links li a:hover {
     color: var(--clr-accent);
   }
-}
 
+  .item{
+    width: 70%;
+    margin-top: 5%;
+  }
 
-/* carousel */
+  .item ion-icon{
+    font-size: 5vw;
+  }
+  .item:nth-child(1)::after{
+    width: 60%;
+    height: 1px;
+    left: 10%;
+    bottom: 0;
+  }
 
- .csel {
-  width: 70%;
-  padding: 10% 0;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-
-}
-
-.socials{
-  display: flex;
-  gap: 10px;
-  color: var(--clr-red);
-  position: absolute;
-  bottom: 3%;
-  left: 15%;
-  font-size: 24px;
-  padding-left: 1%;
-}
-
-.right {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.cta-text{
-  gap: 20px;
-}
-.cta-text p:nth-child(1) {
-  font-size: 4vw;
-  font-weight: 700;
-  line-height: 1.2;
-  width: 60%;
-}
-.cta-text p:nth-child(2) {
-  margin-top: 10px;
-  width: 70%;
-  color: var(--clr-black);
-  opacity: 0.5;
-  font-weight: 300;
-  margin-top: -3%;
-  font-size: 14px;
-}
-.carousel-indicators .active{
-  background-color: red;
-}
-.carousel-indicators .notactive{
-  background-color: rgba(255, 55, 0, 0.5);
+  .item:nth-child(2)::after{
+    width: 60%;
+    height: 1px;
+    left: 10%;
+    bottom: 0;
+  }
 
 }
 
-.cta-text p:nth-child(1) span {
-  color: var(--clr-red);
-}
-
-.try{
-  color: black !important;
-  font-size: 2vw;
-  font-weight: 400;
-}
-
-.ob-btn {
-  padding: 0 7%;
-  display: flex;
-  color: black;
-  border-radius: 10px;
-  gap: 7px;
-  text-decoration: none;
-  background-color: var(--clr-red);
-  justify-self: flex-start;
-}
-
-.ob-btn p {
-  font-size: 0.8em;
-  align-self: center;
-  margin-top: 10%;
-  font-weight: 500;
-}
-.ob-btn p ion-icon {
-  font-size: 2em;
-  color: var(--clr-accent);
-}
-
-.cta{
-  display: flex;
-  margin-top: 5%;
-}
 
 
-.left {
-  width: 30%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.left .img {
-  background-image: url("https://images.pexels.com/photos/10779657/pexels-photo-10779657.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-width: 150px !important;
-  min-height: 150px !important;
-  border-radius: 50%;
-}
-
-.e1 {
-  position: absolute;
-  top: -7%;
-  right: 25%;
-  font-size: 3vw;
-}
-.e2 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  font-size: 3vw;
-}
-.e3 {
-  position: absolute;
-  bottom: -10%;
-  right: 25%;
-  font-size: 3vw;
-}
 
 @media screen and (max-width: 575px) {
-  .ob-btn p {
-    font-size: 0.7em;
-  }
   .ob-btn p ion-icon {
     font-size: 1.5em;
   }
-
-  
-
   .csel {
     flex-direction: column-reverse;
   }
@@ -311,6 +390,24 @@ nav h1 {
   .cta-text p:nth-child(2) {
     font-size: 3vw;
     width: 120%;
+  }
+
+
+}
+@media screen and (min-width: 568px) and (max-width:992px){
+  .item:nth-child(1)::after{
+    width: 50%;
+    height: 1px;
+    left: 10%;
+    bottom: 0;
+   
+  }
+
+  .item:nth-child(2)::after{
+    width: 50%;
+    height: 1px;
+    left: 10%;
+    bottom: 0;
   }
 }
 
@@ -345,7 +442,9 @@ nav h1 {
     min-height: 200px !important;
     border-radius: 50%;
   }
+
 }
+
 
 @media screen and (min-width: 992px) {
   .left .img {
