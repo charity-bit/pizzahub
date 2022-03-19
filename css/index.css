@@ -109,6 +109,7 @@ main {
   color: black;
   border-radius: 10px;
   gap: 7px;
+  text-decoration: none;
 }
 
 .ob-btn p {
