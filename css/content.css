@@ -107,6 +107,7 @@ nav h1 {
   nav {
     background: rgba(255, 55, 0, 0.5);
     width: 50vw;
+    height: 100vh;
     margin-top: -2%;
     display: flex;
     justify-content: space-around;
