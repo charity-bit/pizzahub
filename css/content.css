@@ -110,12 +110,14 @@ nav h1 {
     justify-content: space-around;
     overflow: hidden;
     transition: all 1s ease-in;
-    transform: translateX(100%);
+    display: none;
+    position: fixed;
+    right: 0;
+    top:0;
+  
   }
 
-  .show-nav{
-    transform: translateX(0);
-  }
+ 
   nav h1 {
     display: flex;
     margin: 5%;
