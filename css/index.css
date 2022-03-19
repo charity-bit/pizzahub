@@ -22,7 +22,6 @@ body {
   font-family: "Montserrat", sans-serif;
   height: 100vh;
   overflow: hidden;
-  /* font-family: 'Passero One', cursive; */
 }
 header {
   padding: 2% 3%;
@@ -32,6 +31,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo{
+    font-family: 'Passero One', cursive; 
+
 }
 
 .logo p {
