@@ -192,7 +192,7 @@ main {
     }
     
     main{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
  
     .right{
@@ -202,17 +202,9 @@ main {
     }
     .left{
         width: 100%;
-        margin: 5% auto; 
-        overflow: hidden;
-        position: absolute;
-        left:20%;
-        bottom:-30%;
+        margin: 10% auto; 
+    
     }
-    .left .img {
-        min-width: 400px !important;
-        min-height:400px !important;
-        border-radius: 50%;
-      }
     
     .cta-text p:nth-child(1){
         font-size: 9vw;
