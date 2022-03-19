@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Passero+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+*,
+**::after,
+**::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-accent: #ebf9fd;
+  --clr-red: #ff3700;
+  --clr-black: #000;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+    background-color: var(--clr-accent);
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+.nav-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap:10%;
+    list-style: none;
+
+}
+.nav-links li a{
+    color: var(--clr-black);
+    text-decoration: none;
+}
+
+
+
+.logo p {
+    color: var(--clr-black);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .logo p span {
+    color: var(--clr-red);
+  }
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .icons ion-icon {
+    font-size: 1.2rem;
+    color: var(--clr-red);
+  }
+  
+  @media screen and (max-width: 575px) {
+
+      
+  }
