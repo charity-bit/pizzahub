@@ -438,6 +438,7 @@ footer{
     font-size: 13px;
     align-items: center;
     gap:5px;
+    cursor: pointer;
   }
   .con p ion-icon{
     color: var(--clr-red);
