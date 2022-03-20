@@ -472,6 +472,7 @@ nav h1 {
   width: 60%;
   padding: 2% 2%;
   margin: 0 auto;
+  display: none;
 
 }
 
@@ -500,11 +501,10 @@ nav h1 {
   
 }
  
-  .order-form{
+  /* .order-form{
     display: none;
-  }
+  } */
 
-  
 
   /* footer */
 
@@ -578,8 +578,6 @@ footer{
       width: 90%;
     } 
   }
-  
- 
 @media screen and (max-width: 575px) {
   header {
     width: 100vw;

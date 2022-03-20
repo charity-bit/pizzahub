@@ -59,9 +59,14 @@ $("#submit-btn").click((e) => {
 //order form
 
 let toppings = [];
+let totalOrders = [];
+let totalOrderPrice = 0;
 let total = 0;
 let price = 0;
 let cPrice = 0;
+
+//calculate all items total
+let allItemsTotal = () =>{};
 
 function Pizza(name, size, crust, number, toppings,total) {
   this.name = name;
@@ -131,16 +136,29 @@ $("#add").click((e) => {
     // console.log(totalToppings);
     console.log("price", price);
     console.log("crust", cPrice);
+    
+   
     console.log(total);
+    
+    
     return total;
   };
 
-   var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
-  console.log(pizzaOrder);
-  console.log(pizzaOrder.calculateTotal(size, crust, number, toppings));
+  
 
-  // console.log(pizzaOrder);
-  //console.log(toppings.join(","));
+   
+
+   var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
+   totalOrders.push(pizzaOrder.calculateTotal(size, crust, number, toppings));
+    
+    allItemsTotal = () => {
+     for(let i = 0 ; i < totalOrders.length;i++){
+
+            totalOrderPrice += totalOrders[i];
+     }
+
+     return totalOrderPrice;
+   }
 
 //append
 $("#orders").append(`
@@ -155,13 +173,15 @@ $("#orders").append(`
 
 $("#checkout").fadeIn(1000);
 $("table").fadeIn(1000);
-
+       
 
 });
 
 $("#checkout").click((e)=>{
   e.preventDefault();
   $("#add").fadeOut(1000);
+
+  console.log(allItemsTotal());
 
     
 });
