@@ -141,6 +141,10 @@ main {
 
 .book-btn {
   background: rgba(255, 55, 0, 0.1);
+  cursor: pointer;
+}
+.book-btn:hover,.book-btn:hover{
+  color: #000;
 }
 
 .left {
