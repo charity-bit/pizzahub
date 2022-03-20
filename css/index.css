@@ -21,8 +21,6 @@ body {
   background-color: var(--clr-accent);
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-  overflow: hidden;
-  /* font-family: 'Passero One', cursive; */
 }
 header {
   padding: 2% 3%;
@@ -32,6 +30,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo{
+    font-family: 'Passero One', cursive; 
+
 }
 
 .logo p {
@@ -137,6 +140,10 @@ main {
 
 .book-btn {
   background: rgba(255, 55, 0, 0.1);
+  cursor: pointer;
+}
+.book-btn:hover,.order-btn:hover{
+  color: #000;
 }
 
 .left {
