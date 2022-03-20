@@ -466,11 +466,11 @@ footer{
    color: black;
    display: flex;
    margin-top: 3%;
-   /* padding:2% 0; */
-   height: 1%;
+   padding-top: 1%;
    font-size: 13px;
    justify-content: space-around;
    align-items: center;
+
   }
 
   .copy{
