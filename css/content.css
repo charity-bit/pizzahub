@@ -19,6 +19,7 @@ html {
 body {
   background-color: var(--clr-accent);
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden !important;
 }
 
 header {
@@ -409,11 +410,80 @@ nav h1 {
   table{
     overflow: hidden;
     margin: 2% 3%;
+    width: 95%;
   }
 
   th{
     color: var(--clr-red);
   }
+
+  
+
+  /* footer */
+
+footer{
+  display: flex;
+  flex-direction: column;
+
+}
+
+  .socials{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+  }
+  .con{
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+    gap:5px;
+  }
+  .con p ion-icon{
+    color: var(--clr-red);
+    font-family: 700;
+  }
+
+  /* form contact */
+
+  #name,#email,#msg,#submit-btn{
+    outline: none;
+    border: 1px solid var(--clr-red);
+    padding: 2% 3%;
+    border-radius: 5px;
+  }
+
+  #submit-btn{
+    align-self:flex-end;
+    padding: 2% 10% !important;
+  }
+
+
+  .rights{
+   justify-self: flex-end;
+   gap:10px;
+   background: rgba(255, 55, 0, 0.2);
+   color: black;
+   display: flex;
+   margin-top: 3%;
+   /* padding:2% 0; */
+   height: 1%;
+   font-size: 13px;
+   justify-content: space-around;
+   align-items: center;
+  }
+
+  .copy{
+    display: flex;
+    gap:15px;
+
+  }
+
+
+  .copy p:nth-child(2){
+    color: var(--clr-red);
+  }
+
 
   
  
