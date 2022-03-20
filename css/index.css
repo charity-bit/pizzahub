@@ -21,7 +21,6 @@ body {
   background-color: var(--clr-accent);
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-  overflow: hidden;
 }
 header {
   padding: 2% 3%;
@@ -143,7 +142,7 @@ main {
   background: rgba(255, 55, 0, 0.1);
   cursor: pointer;
 }
-.book-btn:hover,.book-btn:hover{
+.book-btn:hover,.order-btn:hover{
   color: #000;
 }
 
