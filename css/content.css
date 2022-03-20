@@ -78,6 +78,7 @@ nav {
 }
 nav h1 {
   display: none;
+  cursor: pointer;
 }
 
 .show-menu {
@@ -313,7 +314,7 @@ nav h1 {
   display: block;
   font-size: 12px;
 }
-.img {
+.image {
   background-image: url("https://images.pexels.com/photos/1788852/pexels-photo-1788852.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   height: 100%;
   width: 35%;
@@ -348,6 +349,74 @@ nav h1 {
   margin-top: 5%;
 }
 
+
+#order{
+  padding: 5% 0;
+}
+
+/* form */
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    margin: 0 auto;  
+  }
+
+  .fl,.cr,.sz{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+  }
+  
+  label{
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  select{
+    border: 1px solid var(--clr-red);
+    border-radius: 5px;
+    outline: none;
+    padding: 2% 4%;
+    background: #ebf9fd;
+    /* box-shadow: 20px 20px 60px #c8d4d7, -20px -20px 60px #ffffff; */
+  }
+
+  .checkboxes div{
+    display:flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 5px;
+  }
+  .checkboxes{
+    display: flex;
+    margin-top: 2%;
+    gap:10px;
+  }
+
+  #checkout{
+      padding: 2% 7%;
+      align-self: flex-start;
+      margin-top: 1%;
+      background-color: transparent;
+      border: 1px solid var(--clr-red);
+      border-radius: 5px;
+  }
+
+  /* table */
+  table{
+    overflow: hidden;
+    margin: 2% 3%;
+  }
+
+  th{
+    color: var(--clr-red);
+  }
+
+  
+ 
 @media screen and (max-width: 575px) {
   header {
     width: 100vw;
@@ -366,6 +435,7 @@ nav h1 {
     top: 2%;
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
   .show-menu ion-icon {
     color: var(--clr-red);
@@ -435,7 +505,6 @@ nav h1 {
     bottom: 0;
   }
 }
-
 @media screen and (max-width: 575px) {
   .ob-btn p ion-icon {
     font-size: 1.5em;

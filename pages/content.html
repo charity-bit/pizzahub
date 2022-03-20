@@ -227,7 +227,7 @@
 
             <div class="menu-items row container">
              <div class="col-lg-5 menu-item">
-                     <div class="img col-lg-2">
+                     <div class="image col-lg-2">
           
                      </div>
 
@@ -247,7 +247,7 @@
                      </div>
              </div>
              <div class="col-lg-5 menu-item">
-              <div class="img col-lg-2">
+              <div class="image col-lg-2">
    
               </div>
 
@@ -268,7 +268,7 @@
             </div>
 
             <div class="col-lg-5 menu-item">
-              <div class="img col-lg-2">
+              <div class="image col-lg-2">
    
               </div>
 
@@ -289,7 +289,7 @@
             </div>
 
             <div class="col-lg-5 menu-item">
-              <div class="img col-lg-2">
+              <div class="image col-lg-2">
    
               </div>
 
@@ -309,7 +309,7 @@
               </div>
             </div>
             <div class="col-lg-5 menu-item">
-              <div class="img col-lg-2">
+              <div class="image col-lg-2">
    
               </div>
 
@@ -329,7 +329,7 @@
               </div>
             </div>
             <div class="col-lg-5 menu-item">
-              <div class="img col-lg-2">
+              <div class="image col-lg-2">
    
               </div>
 
@@ -356,21 +356,155 @@
         
       </section>
 
-<section id="order">
+<section id="order" class="container">
   <h3 class="section-title">Explore Make Your<span> Order</span></h3>
 
 
-  <div class="order-section">
+  <div class="order-form row container">
+    <!-- class="col-lg-5 col-md-8 col-sm-10" -->
+    <form action="" class="col-lg-6 col-md-12 col-sm-12">
+       
+      <!-- flavor -->
+      <div class="fl">
+        <label for="flavor">Choose Flavour</label>
+        <select name="flavour" id="flavor">
+          <option value="0">Select flavour here</option>
+          <option value="Hawaain">Hawaain</option>
+          <option value="Meat Deluxe">Meat Deluxe</option>
+          <option value="BBQ steak">BBQ Steak</option>
+          <option value="Peri Peri Chicken">Peri Peri Chicken</option>
+        </select>
+      </div>
+     
+     
+ 
 
-    <form action="">
-      
+      <!-- size -->
+
+        <div class="sz"> 
+          <label for="size">Choose a size</label>
+        <select name="size" id="size">
+          <option value="0">Select Size</option>
+         <option value="Small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="Large">Large</option>
+          </select>
+        </div>
+     
+
+
+        <!-- crust -->
+
+        <div class="cr"> 
+            <label for="crust">Select Crust</label>
+          <select name="crust" id="crust">
+            <option value="0">Select Crust here</option>
+           <option value="Crispy">Crispy</option>
+            <option value="Stuffed">Stuffed</option>
+            <option value="Gluten-free">Gluten Free</option> 
+        </select>
+        </div>
+     
+        <div class="checkboxes row">
+
+         <div class="pineapple col-lg-4 col-sm-4">
+            <input type="checkbox"  value="pineapple" name="pineapple" id="pineapple">
+            <label for="pineapple">pineapple</label>
+         </div>
+         <div class="onions col-lg-4 col-sm-4">
+          <input type="checkbox"  value="onions" name="onions" id="onions">
+          <label for="Onions">Onions</label>
+          </div>
+          <div class="macon col-lg-4 col-sm-4">
+            <input type="checkbox" value="macon" name="macon" id="macon">
+            <label for="macon">macon</label>
+         </div>
+         <div class="mushrooms col-lg-4 col-sm-4">
+          <input type="checkbox" value="mushrooms" name="mushrooms" id="mushrooms">
+          <label for="mushrooms">mushrooms</label>
+          </div>
+          <div class="pepperoni col-lg-4 col-sm-4">
+        <input type="checkbox" value="pepperoni" name="pepperoni" id="pepperoni">
+        <label for="pepperoni">pepperoni</label>
+         </div>
+         <div class="garlic col-lg-4 col-sm-2">
+      <input type="checkbox" value="garlic" name="garlic" id="garlic">
+      <label for="garlic">garlic</label>
+         </div>
+     
+         </div>
+
+         <button id="checkout">Checkout</button>
+
+
     </form>
+
+    <table class="table col-lg  mt-2 table-responsive-sm">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Size</th>
+          <th scope="col">Crust</th>
+          <th scope="col">Topping</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+       <tbody id="orders">
+        <tr>
+          <td id="pname">Name</td>
+          <td id="psize">Size</td>
+          <td id="pcrust">Crust</td>
+          <td  id="ptopping">Topping</td>
+          <td id="total">Total</td>
+
+        </tr>
+       </tbody>     
+    </table>
+
 
   </div>
 
 </section>
       
     </main>
+
+
+    <footer>
+     
+
+           <div class="contact">
+            <div class="socials">
+              <div class="loc">
+               <ion-icon name="pin-outline"></ion-icon>
+                <p>Kimathi Street,NAIROBI,KENYA</p>
+              </div>
+              <div class="phon">
+               <ion-icon name="call-outline"></ion-icon>
+                <p>+2547198467190</p>
+               </div>
+             <div class="mail">
+               <p>contact@pizzahut.com</p>
+               <ion-icon name="mail-outline"></ion-icon>
+             </div>
+             <div class="web">
+               <p>www.pizzahub.com</p>
+               <ion-icon name="earth-outline"></ion-icon>
+             </div>
+           </div>
+           
+           </div>
+      
+
+
+        <div class="logo">
+          <p>Pi<span>zz</span>a H<span>u</span>b</p>
+        </div>
+        <div class="copy">
+          <p>&copy2022 all rights reserved</p>
+          <p>Terms of Use</p>
+        </div>
+        
+    </footer>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
