@@ -104,6 +104,9 @@ $("#add").click((e) => {
   else if(size == "0"){
     alert('please choose a size')
   }
+  else if(toppings.length === 0){
+      alert('Please choose atleast one crust')
+  }
   else{
 
 
@@ -154,11 +157,6 @@ $("#add").click((e) => {
     }
 
     total = (price + cPrice + totalToppings) * number;
-    // console.log(totalToppings);
-    console.log("price", price);
-    console.log("crust", cPrice);
-
-    console.log(total);
 
     return total;
   };
