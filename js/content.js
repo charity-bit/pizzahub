@@ -89,7 +89,7 @@ $("#add").click((e) => {
   let number = $("#quantity").val();
 
   if (size == "" || crust == "" || number == "") {
-    alert("please All the  details");
+    alert("please enter All the  details");
   } else if (flavour == "0") {
     alert("please Choose a flavour");
   } else if (crust == "0") {
@@ -215,36 +215,31 @@ $("#complete").click((e) => {
   let userPhone = $("#tel").val();
   console.log(userName + userPhone + userLocation);
 
-   //show confimation message
-  let showConfirm = ()=>{
+  //show confimation message
+  let showConfirm = () => {
     // hide output container
-  $(".output").hide();
-  alert("order received");
+    $(".output").hide();
+    alert("order received");
 
-  //show summmary
-  $(".summary").fadeIn(1000);
-  }
+    //show summmary
+    $(".summary").fadeIn(1000);
+  };
   //get total based on delivery or not
   getWholeTotal = () => {
     totalPrice = 0;
     if ($("input[name='mod']:checked").val() == "home") {
-      if(userName == "" || userLocation == "" || userPhone == ""){
-       if (userName == "") {
+      if (userName == "" || userLocation == "" || userPhone == "") {
+        if (userName == "") {
           alert("Please enter a name");
         } else if (userPhone == "") {
           alert("Please enter a Phone Number to allow us to contact you");
         } else {
           alert("Please enter a Delivery location");
-        } ;
-      }
-   
-      else{
+        }
+      } else {
         totalPrice = 200 + allItemsTotal();
-         showConfirm();
+        showConfirm();
       }
-  
-    
-      
     } else {
       totalPrice = allItemsTotal();
       showConfirm();
@@ -262,11 +257,6 @@ $("#complete").click((e) => {
       `Thank you for ordering with us.Your Order of Kshs${getWholeTotal()} has been received`
     );
   }
-
-
- 
-
-  
 });
 
 $("#sum-button").click((e) => {
