@@ -12,6 +12,7 @@ $(".tog-nav").click(() => {
 
 //contact form validation
 
+
 const notEmpty = (name, email, message) => {
   name == "" && email == "" && message
     ? alert("Please fill the fields")
@@ -79,7 +80,11 @@ function Pizza(name, size, crust, number, toppings, total) {
 
 //add item click event
 $("#add").click((e) => {
+
   e.preventDefault();
+
+  $("#loc-form").trigger("reset");
+
 
   let flavour = $("#flavor option:selected").val();
   let size = $("#size  option:selected").val();
@@ -184,6 +189,7 @@ $("#add").click((e) => {
 <td id="total">${pizzaOrder.calculateTotal(size, crust, number, toppings)}</td>
 </tr>
 `);
+   $('#total-price').text(allItemsTotal());
 
   $("#checkout").fadeIn(1000);
   $("table").fadeIn(1000);
@@ -194,6 +200,7 @@ $("#add").click((e) => {
 
 //checkout button even listener
 $("#checkout").click((e) => {
+
   e.preventDefault();
 
   //hide table and order form on checkout clicked
@@ -220,14 +227,14 @@ $("input[name='mod']").on("change", () => {
 $("#complete").click((e) => {
   e.preventDefault();
 
-
+  //get total based on delivery or not
   getWholeTotal = () => {
 
 
     totalPrice = 0;
-    if ($("input[value = 'home']:checked")){
+    if($("input[name='mod']:checked").val() == "home"){
       totalPrice = 200 + allItemsTotal();
-    } else if ($("input[value = 'pick']:checked)")) {
+    } else {
       totalPrice = allItemsTotal();
 
     }
@@ -274,8 +281,7 @@ $("#complete").click((e) => {
 
 $("#sum-button").click((e) => {
    //reset location form
-   $("#loc-form").trigger("reset");
-
+  
   //show order form
   $("#add").fadeIn(1000);
   $(".order-form").fadeIn(1000);
