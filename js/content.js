@@ -32,9 +32,6 @@ const validateEmail = (email) => {
   }
 };
 
-
-
-
 //Email Validation
 $("#submit-btn").click((e) => {
   //to prevent the form from reloading
@@ -54,21 +51,24 @@ $("#submit-btn").click((e) => {
   }
 });
 
-
-
 //order form
 
 let toppings = [];
 let totalOrders = [];
 let totalOrderPrice = 0;
+let totalPrice = 0;
 let total = 0;
 let price = 0;
 let cPrice = 0;
 
 //calculate all items total
-let allItemsTotal = () =>{};
+let allItemsTotal = () => {};
 
-function Pizza(name, size, crust, number, toppings,total) {
+//Calculate total after delivery choice
+let getWholeTotal = () => {};
+
+//Pizza Constructor function
+function Pizza(name, size, crust, number, toppings, total) {
   this.name = name;
   this.size = size;
   this.crust = crust;
@@ -76,6 +76,8 @@ function Pizza(name, size, crust, number, toppings,total) {
   this.toppings = toppings;
   this.total = total;
 }
+
+//add item click event
 $("#add").click((e) => {
   e.preventDefault();
 
@@ -84,10 +86,18 @@ $("#add").click((e) => {
   let crust = $("#crust option:selected").val();
   let number = $("#quantity").val();
 
-  //get toppings function
+  if(size == "" || crust == "" || number == "" ){
+    alert('please All the  details')
+  }
+
+  else if(flavour == ""){
+    alert('please All the  details')
+  }
+  else{
+
+
+     //get calculate total price
   Pizza.prototype.calculateTotal = function (size, crust, number, toppings) {
-
-
     //get price based on size
     switch (size) {
       case "0":
@@ -136,32 +146,30 @@ $("#add").click((e) => {
     // console.log(totalToppings);
     console.log("price", price);
     console.log("crust", cPrice);
-    
-   
+
     console.log(total);
-    
-    
+
     return total;
   };
 
-  
+  //pizza order instance
+  var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
 
-   
+  totalOrders.push(pizzaOrder.calculateTotal(size, crust, number, toppings));
 
-   var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
-   totalOrders.push(pizzaOrder.calculateTotal(size, crust, number, toppings));
-    
-    allItemsTotal = () => {
-     for(let i = 0 ; i < totalOrders.length;i++){
+  //calculate total price of items without delivery charge
+  allItemsTotal = () => {
+    for (let i = 0; i < totalOrders.length; i++) {
+      totalOrderPrice += totalOrders[i];
+    }
 
-            totalOrderPrice += totalOrders[i];
-     }
+    console.log(totalOrders);
+    totalOrders.length = 0;
+    return totalOrderPrice;
+  };
 
-     return totalOrderPrice;
-   }
-
-//append
-$("#orders").append(`
+  //append
+  $("#orders").append(`
 <tr>
 <td id="pname">${pizzaOrder.name}</td>
 <td id="psize">${pizzaOrder.size}</td>
@@ -169,50 +177,115 @@ $("#orders").append(`
 <td id="ptopping">${pizzaOrder.toppings.join(",")}</td>
 <td id="total">${pizzaOrder.calculateTotal(size, crust, number, toppings)}</td>
 </tr>
-`)
+`);
 
-$("#checkout").fadeIn(1000);
-$("table").fadeIn(1000);
-       
+  $("#checkout").fadeIn(1000);
+  $("table").fadeIn(1000);
+  }
 
+ 
 });
 
-$("#checkout").click((e)=>{
+//checkout button even listener
+$("#checkout").click((e) => {
   e.preventDefault();
+
+  //hide table and order form on checkout clicked
   $("#add").fadeOut(1000);
-
-  console.log(allItemsTotal());
-
-    
+  $("table").fadeOut(1000);
+  $(".order-form").fadeOut(1000);
+  $(".output").slideUp(2000).fadeIn(1000);
+  $("#checkout").fadeOut(1000);
 });
 
-$("input[name='mod']").on("change",()=>{
+//show location form based on radio button for delivery
+$("input[name='mod']").on("change", () => {
   //show enter location form
-  if("input[value = 'home']:checked"){
+
+  if ($("input[name='mod']:checked").val() == "pick") {
+      document.getElementById("pick-d").style.display = 'none';
+  } else {
+    document.getElementById("pick-d").style.display = 'flex';
+     
+
+  }
+});
+
+$("#complete").click((e) => {
+  e.preventDefault();
+
+
+  getWholeTotal = () => {
+
+
+    totalPrice = 0;
+    if ($("input[value = 'home']:checked")){
+      totalPrice = 200 + allItemsTotal();
+    } else if ($("input[value = 'pick']:checked)")) {
+      totalPrice = allItemsTotal();
+
+    }
+
+    return totalPrice;
+  };
+
+  if($("#nm").val() == "" &&  $("#loc").val() == "")
+  {
+
+    $('.s-name').text(`Thank you ${$("#nm").val()} for ordering with us.
+    Your Order of ${getWholeTotal()} has been received and will be delivered
+    at ${$("#loc").val()}`);
   
-    $(".pick-details").toggleClass("show-form");
   }
 
   else{
-      
-    $(".pick-details").toggleClass("show-form");
+    $('.s-name').text(`Thank you for ordering with us.Your Order of ${getWholeTotal()} has been received`);
+
   }
-
-  $("#complete").click((e)=>{
-    e.preventDefault();
-    alert("order received")
-    $("loc").trigger("reset");
-    $(".pick-details").hide();
-    $("input[value = 'home']").prop("checked",false);
-  })
-
-})
+ 
+  
 
 
 
+  
+  
+
+ 
+ 
+  // hide output container
+  $(".output").hide();
+  alert("order received");
+
+  //show summmary
+  $(".summary").fadeIn(1000);
+
+ 
+
+  
 
 
+});
 
+$("#sum-button").click((e) => {
+   //reset location form
+   $("#loc-form").trigger("reset");
+
+  //show order form
+  $("#add").fadeIn(1000);
+  $(".order-form").fadeIn(1000);
+
+  //clear orders-table data
+  $("#orders").empty();
+
+  //clear order form
+  $("#order-fm").trigger("reset");
+
+  //hide summary container
+  $(".summary").fadeOut(1000);
+
+  window.location.reload();
+  window.location.href("./content.html#menu");
+});
 
 // keep track of current toppings
 $("input[name='top']").on("change", () => {

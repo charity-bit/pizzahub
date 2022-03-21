@@ -330,7 +330,7 @@
 
         <div class="order-form row container">
           <!-- class="col-lg-5 col-md-8 col-sm-10" -->
-          <form action="" class="col-lg-6 col-md-12 col-sm-12">
+          <form id="order-fm" class="col-lg-6 col-md-12 col-sm-12">
             <!-- flavor -->
             <div class="fl">
               <label for="flavor">Choose Flavour</label>
@@ -347,7 +347,7 @@
 
             <div class="sz">
               <label for="size">Choose a size</label>
-              <select name="size" id="size">
+              <select name="size" id="size" >
                 <option value="0">Select Size</option>
                 <option value="small">Small --->650</option>
                 <option value="medium">Medium --->850</option>
@@ -380,7 +380,7 @@
             </div>
 
             <div class="checkboxes row">
-              <label>Choose toppings Each at Ksh.65</label>
+              <label>Choose toppings</label>
               <div class="pineapple col-lg-4 col-sm-4">
                 <input
                   type="checkbox"
@@ -429,20 +429,20 @@
             <table class="table order-table">
               <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Crust</th>
+                  <th scope="col">Topping</th>
+                  <th scope="col">Total</th>
                 </tr>
               </thead>
               <tbody id="orders">
                 <tr>
-                  <td id="pname">Name</td>
-                  <td id="psize">Size</td>
-                  <td id="pcrust">Crust</td>
-                  <td id="ptopping">Topping</td>
-                  <td id="total">Total</td>
+                  <td id="pname"></td>
+                  <td id="psize"></td>
+                  <td id="pcrust"></td>
+                  <td id="ptopping"></td>
+                  <td id="total"></td>
                 </tr>
               </tbody>
             
@@ -456,7 +456,7 @@
 
         </div>
           <div class="output">
-            <form action="" id="del">
+            <form  id="del">
               <h5>Choose Delivery</h5>
               <div class="home">
                <input type="radio" value="home" id="home" name="mod">
@@ -468,19 +468,30 @@
                 <label for="pick">Pick Order</label>
               </div>
 
-              <form action="" id="loc-form" > 
-                <div class="pick-details">
-                  <p>Delivery Details</p>
-                  <input type="text" placeholder="Name..." id="nm" name="name">
-                  <input type="tel" placeholder="Telephone" id="tel" name="tel">
-                  <input type="text" placeholder="location" id="loc" name="location">
-                </div>
-              </form>
-              <button id="complete">
-                Complete Order
-              </button>
+             
 
             </form>
+            <form  action="submit" id="loc-form"> 
+              <div class="pick-details" id="pick-d">
+                <p>Delivery Details</p>
+                <input type="text" placeholder="Name..." id="nm" name="name" required>
+                <input type="tel" placeholder="Telephone" id="tel" name="tel" required>
+                <input type="text" placeholder="location" id="loc" name="location" required>
+              </div>
+            </form>
+            <button id="complete">
+              Complete Order
+            </button>
+          </div>
+
+          <div class="summary">
+             <p class="s-name">
+             </p>
+             
+
+             <button id="sum-button">
+               OK 
+             </button>
           </div>
 
 
