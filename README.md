@@ -83,7 +83,7 @@
 ---
 
 Click on the link below to view the live site
-<a href="https://charity-bit.github.io/Delani_Studio/">https://charity-bit.github.io/Delani_Studio/<a>
+<a href="https://charity-bit.github.io/pizzahub">https://charity-bit.github.io/pizzahub/<a>
 
 
 ---
