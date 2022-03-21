@@ -47,9 +47,16 @@
 
 
 <br>
-<h2>Confirmation text</h2>
+<h2>Pick Up Confirmation text</h2>
 <img src="./images/output.png">
 <br>
+
+<br>
+<h2>Home Delivery Confirmation text</h2>
+<img src="./images/del.png">
+<br>
+
+
 
 
 ## Table of Content
