@@ -255,6 +255,13 @@ nav h1 {
   width: 13ch;
 }
 
+.item{
+  transition: transform 1s ease-in-out;
+  cursor: pointer;
+}
+.item:hover{
+  transform: scale(1.2);
+}
 .item p {
   font-size: 20px;
   font-weight: 400;
@@ -293,9 +300,15 @@ nav h1 {
   display: flex;
   background: #ebf9fd;
   box-shadow: 20px 20px 60px #c8d4d7, -20px -20px 60px #ffffff;
-  /* border: 1px solid var(--clr-red); */
+ 
   border-radius: 10px;
+  transition: transform 1s ease-in-out;
   padding: 0;
+}
+
+.menu-item:hover{
+        transform: scale(1.2);
+     
 }
 .info {
   display: flex;
@@ -498,6 +511,8 @@ nav h1 {
   border-radius: 5px;
   
 }
+
+ 
 
 #sum-button{
   padding: 2% 20%;
