@@ -11,8 +11,6 @@ $(".tog-nav").click(() => {
 });
 
 //contact form validation
-
-
 const notEmpty = (name, email, message) => {
   name == "" && email == "" && message
     ? alert("Please fill the fields")
@@ -80,105 +78,97 @@ function Pizza(name, size, crust, number, toppings, total) {
 
 //add item click event
 $("#add").click((e) => {
-
   e.preventDefault();
 
   $("#loc-form").trigger("reset");
 
-
+  //get order form details
   let flavour = $("#flavor option:selected").val();
   let size = $("#size  option:selected").val();
   let crust = $("#crust option:selected").val();
   let number = $("#quantity").val();
 
-  if(size == "" || crust == "" || number == "" ){
-    alert('please All the  details')
-  }
+  if (size == "" || crust == "" || number == "") {
+    alert("please All the  details");
+  } else if (flavour == "0") {
+    alert("please Choose a flavour");
+  } else if (crust == "0") {
+    alert("please Choose a crust");
+  } else if (size == "0") {
+    alert("please choose a size");
+  } else if (toppings.length === 0) {
+    alert("Please choose atleast one crust");
+  } else {
+    //get calculate total price
+    Pizza.prototype.calculateTotal = function (size, crust, number, toppings) {
+      //get price based on size
+      switch (size) {
+        case "0":
+          price = 0;
+          break;
+        case "small":
+          price = 650;
+          break;
+        case "medium":
+          price = 850;
+          break;
+        case "large":
+          price = 1200;
+          break;
+        default:
+          console.log("error");
+      }
 
-  else if(flavour == "0"){
-    alert('please Choose a flavour')
-  }
-  else if(crust == "0"){
-    alert('please Choose a crust')
-  }
-  else if(size == "0"){
-    alert('please choose a size')
-  }
-  else if(toppings.length === 0){
-      alert('Please choose atleast one crust')
-  }
-  else{
+      //get crust
+      switch (crust) {
+        case "0":
+          cPrice = 0;
+          break;
+        case "crispy":
+          cPrice = 200;
+          break;
+        case "stuffed":
+          cPrice = 500;
+          break;
+        case "gluten-free":
+          cPrice = 700;
+          break;
+        default:
+          console.log("error");
+      }
 
+      if (size == "large") {
+        totalToppings = 200 * toppings.length;
+      } else if (size == "medium") {
+        totalToppings = 150 * toppings.length;
+      } else {
+        totalToppings = 65 * toppings.length;
+      }
 
-     //get calculate total price
-  Pizza.prototype.calculateTotal = function (size, crust, number, toppings) {
-    //get price based on size
-    switch (size) {
-      case "0":
-        price = 0;
-        break;
-      case "small":
-        price = 650;
-        break;
-      case "medium":
-        price = 850;
-        break;
-      case "large":
-        price = 1200;
-        break;
-      default:
-        console.log("error");
-    }
+      total = (price + cPrice + totalToppings) * number;
 
-    //get crust
-    switch (crust) {
-      case "0":
-        cPrice = 0;
-        break;
-      case "crispy":
-        cPrice = 200;
-        break;
-      case "stuffed":
-        cPrice = 500;
-        break;
-      case "gluten-free":
-        cPrice = 700;
-        break;
-      default:
-        console.log("error");
-    }
+      return total;
+    };
 
-    if (size == "large") {
-      totalToppings = 200 * toppings.length;
-    } else if (size == "medium") {
-      totalToppings = 150 * toppings.length;
-    } else {
-      totalToppings = 65 * toppings.length;
-    }
+    //pizza order instance
+    var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
 
-    total = (price + cPrice + totalToppings) * number;
+    //array containing orders total
+    totalOrders.push(pizzaOrder.calculateTotal(size, crust, number, toppings));
 
-    return total;
-  };
+    //calculate total price of items without delivery charge
+    allItemsTotal = () => {
+      for (let i = 0; i < totalOrders.length; i++) {
+        totalOrderPrice += totalOrders[i];
+      }
 
-  //pizza order instance
-  var pizzaOrder = new Pizza(flavour, size, crust, number, toppings);
+      console.log(totalOrders);
+      totalOrders.length = 0;
+      return totalOrderPrice;
+    };
 
-  totalOrders.push(pizzaOrder.calculateTotal(size, crust, number, toppings));
-
-  //calculate total price of items without delivery charge
-  allItemsTotal = () => {
-    for (let i = 0; i < totalOrders.length; i++) {
-      totalOrderPrice += totalOrders[i];
-    }
-
-    console.log(totalOrders);
-    totalOrders.length = 0;
-    return totalOrderPrice;
-  };
-
-  //append
-  $("#orders").append(`
+    //append
+    $("#orders").append(`
 <tr>
 <td id="pname">${pizzaOrder.name}</td>
 <td id="psize">${pizzaOrder.size}</td>
@@ -187,18 +177,15 @@ $("#add").click((e) => {
 <td id="total">${pizzaOrder.calculateTotal(size, crust, number, toppings)}</td>
 </tr>
 `);
-   $('#total-price').text(allItemsTotal());
+    $("#total-price").text(allItemsTotal());
 
-  $("#checkout").fadeIn(1000);
-  $("table").fadeIn(1000);
+    $("#checkout").fadeIn(1000);
+    $("table").fadeIn(1000);
   }
-
- 
 });
 
 //checkout button even listener
 $("#checkout").click((e) => {
-
   e.preventDefault();
 
   //hide table and order form on checkout clicked
@@ -214,72 +201,77 @@ $("input[name='mod']").on("change", () => {
   //show enter location form
 
   if ($("input[name='mod']:checked").val() == "pick") {
-      document.getElementById("pick-d").style.display = 'none';
+    document.getElementById("pick-d").style.display = "none";
   } else {
-    document.getElementById("pick-d").style.display = 'flex';
-     
-
+    document.getElementById("pick-d").style.display = "flex";
   }
 });
 
 $("#complete").click((e) => {
   e.preventDefault();
 
-  //get total based on delivery or not
-  getWholeTotal = () => {
+  let userName = $("#nm").val();
+  let userLocation = $("#loc").val();
+  let userPhone = $("#tel").val();
+  console.log(userName + userPhone + userLocation);
 
-
-    totalPrice = 0;
-    if($("input[name='mod']:checked").val() == "home"){
-      totalPrice = 200 + allItemsTotal();
-    } else {
-      totalPrice = allItemsTotal();
-
-    }
-
-    return totalPrice;
-  };
-
-  if($("#nm").val() == "" &&  $("#loc").val() == "")
-  {
-
-    $('.s-name').text(`Thank you ${$("#nm").val()} for ordering with us.
-    Your Order of ${getWholeTotal()} has been received and will be delivered
-    at ${$("#loc").val()}`);
-  
-  }
-
-  else{
-    $('.s-name').text(`Thank you for ordering with us.Your Order of ${getWholeTotal()} has been received`);
-
-  }
- 
-  
-
-
-
-  
-  
-
- 
- 
-  // hide output container
+   //show confimation message
+  let showConfirm = ()=>{
+    // hide output container
   $(".output").hide();
   alert("order received");
 
   //show summmary
   $(".summary").fadeIn(1000);
+  }
+  //get total based on delivery or not
+  getWholeTotal = () => {
+    totalPrice = 0;
+    if ($("input[name='mod']:checked").val() == "home") {
+      if(userName == "" || userLocation == "" || userPhone == ""){
+       if (userName == "") {
+          alert("Please enter a name");
+        } else if (userPhone == "") {
+          alert("Please enter a Phone Number to allow us to contact you");
+        } else {
+          alert("Please enter a Delivery location");
+        } ;
+      }
+   
+      else{
+        totalPrice = 200 + allItemsTotal();
+         showConfirm();
+      }
+  
+    
+      
+    } else {
+      totalPrice = allItemsTotal();
+      showConfirm();
+    }
+
+    return totalPrice;
+  };
+  console.log(userName + userPhone + userLocation);
+  if (userName != "" && `userLocation` != "") {
+    $(".s-name").text(`Thank you ${userName} for ordering with us.
+    Your Order of Kshs. ${getWholeTotal()} inclusive of delivery charge of Kshs.200 has been received and will be delivered
+    at ${userLocation}`);
+  } else {
+    $(".s-name").text(
+      `Thank you for ordering with us.Your Order of Kshs${getWholeTotal()} has been received`
+    );
+  }
+
 
  
 
   
-
-
 });
 
 $("#sum-button").click((e) => {
-   //reset location form
-  
+  //reset location form
+
   //show order form
   $("#add").fadeIn(1000);
   $(".order-form").fadeIn(1000);
@@ -294,7 +286,6 @@ $("#sum-button").click((e) => {
   $(".summary").fadeOut(1000);
 
   window.location.reload();
-  window.location.href("./content.html#menu");
 });
 
 // keep track of current toppings
