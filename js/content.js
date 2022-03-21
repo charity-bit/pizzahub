@@ -90,8 +90,14 @@ $("#add").click((e) => {
     alert('please All the  details')
   }
 
-  else if(flavour == ""){
-    alert('please All the  details')
+  else if(flavour == "0"){
+    alert('please Choose a flavour')
+  }
+  else if(crust == "0"){
+    alert('please Choose a crust')
+  }
+  else if(size == "0"){
+    alert('please choose a size')
   }
   else{
 
