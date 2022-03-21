@@ -27,7 +27,7 @@
 
 <br>
 <h2>Menu Section</h2>
-<img src="./images/menu.png">
+<img src="./images/meu_img.png">
 <br>
 
 <br>
