@@ -112,17 +112,24 @@ $("#add").click((e) => {
   let crust = $("#crust option:selected").val();
   let number = $("#quantity").val();
 
-  if (size == "" || crust == "" || number == "") {
-    alert("please enter All the  details");
-  } else if (flavour == "0") {
-    alert("please Choose a flavour");
-  } else if (crust == "0") {
-    alert("please Choose a crust");
-  } else if (size == "0") {
-    alert("please choose a size");
-  } else if (toppings.length === 0) {
-    alert("Please choose atleast one crust");
-  } else {
+  if (size == "" || crust == "" || number == "" || toppings.length === 0) {
+    if (flavour == "0") {
+      alert("please Choose a flavour");
+    } else if (crust == "0") {
+      alert("please Choose a crust");
+    } else if (size == "0") {
+      alert("please choose a size");
+    }  else if(number == "" ){
+      alert("Please Choose the Quantity you want to buy")
+
+    }
+    
+    else
+    {
+      alert("Please choose atleast one topping");
+    }
+  } 
+   else{
     //get calculate total price
     Pizza.prototype.calculateTotal = function (size, crust, number, toppings) {
       //get price based on size
