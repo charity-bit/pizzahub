@@ -60,6 +60,30 @@ let total = 0;
 let price = 0;
 let cPrice = 0;
 
+//setting delivery time
+var currentTime = new Date();
+var deliveryTime = new Date();
+var pickTime = new Date();
+
+deliveryTime.setTime(currentTime.getTime() + (60 * 60 * 1000));
+pickTime.setTime(currentTime.getTime() + (30 * 60 * 1000));
+
+//setTime
+function setTime(time){
+  if (time < 10 && time > 0){
+    time = `0${time}`
+  }
+
+  return time;
+}
+
+
+
+let days = ["Sunday","Monday","Tuesday","Wenesday","Thursday","Friday","Saturday"];
+let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+
+
 //calculate all items total
 let allItemsTotal = () => {};
 
@@ -248,13 +272,19 @@ $("#complete").click((e) => {
     return totalPrice;
   };
   console.log(userName + userPhone + userLocation);
+
+
+   
+
   if (userName != "" && `userLocation` != "") {
     $(".s-name").text(`Thank you ${userName} for ordering with us.
-    Your Order of Kshs. ${getWholeTotal()} inclusive of delivery charge of Kshs.200 has been received and will be delivered
-    at ${userLocation}`);
+    Your Order of Kshs:${getWholeTotal()} inclusive of delivery charge of Kshs.200 has been received and will be delivered
+    to ${userLocation} on ${days[deliveryTime.getDay()]} date ${deliveryTime.getDate()} of ${months[deliveryTime.getMonth()]} at ${deliveryTime.getHours()}:${setTime(deliveryTime.getMinutes())}`);
   } else {
     $(".s-name").text(
-      `Thank you for ordering with us.Your Order of Kshs${getWholeTotal()} has been received`
+      `Thank you for ordering with us.Your Order of Kshs:${getWholeTotal()} has been received. Please Pick it up on
+      ${days[pickTime.getDay()]} date ${pickTime.getDate()} ${months[pickTime.getMonth()]} at ${pickTime.getHours()}:${setTime(pickTime.getMinutes())}
+      `
     );
   }
 });
@@ -263,6 +293,7 @@ $("#sum-button").click((e) => {
   //reset location form
 
   //show order form
+  e.preventDefault();
   $("#add").fadeIn(1000);
   $(".order-form").fadeIn(1000);
 
